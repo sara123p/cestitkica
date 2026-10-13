@@ -1,0 +1,458 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e7, #f8b8d2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: white;
+    color: #d98aaa;
+    border: none;
+    padding: 15px 45px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.birthday {
+    display: none;
+    text-align: center;
+    color: white;
+}
+
+.birthday h2 {
+    font-size: 40px;
+}
+
+
+
+.birthday p {
+    font-size: 22px;
+    font-style: italic;
+}
+
+
+
+
+
+.cake {
+    width: 480px;
+    height: 320px;
+    margin: 100px auto 35px;
+    position: relative;
+}
+
+/* GORNJA POVRŠINA */
+.cake-top {
+    width: 420px;
+    height: 85px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    background: linear-gradient(
+        to bottom,
+        #fffafd 0%,
+        #ffe8f1 45%,
+        #f4b5ce 100%
+    );
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        inset 0 -9px 0 #e9a0bd,
+        0 4px 10px rgba(151, 70, 105, 0.13);
+}
+
+/* SREDNJI SLOJ */
+.cake-middle {
+    width: 420px;
+    height: 95px;
+    margin: -30px auto 0;
+    position: relative;
+    background: linear-gradient(
+        to right,
+        #d982a6,
+        #f8c9dd 22%,
+        #ffe7f0 50%,
+        #f5bbd2 78%,
+        #d982a6
+    );
+    border-radius: 12px 12px 22px 22px;
+    box-shadow:
+        inset 0 -9px 0 #dc8bac,
+        0 5px 10px rgba(151, 70, 105, 0.13);
+}
+/* Gornji sloj i glazura */
+
+.cake-bottom {
+    width: 480px;
+    height: 130px;
+    margin: -8px auto 0;
+    position: relative;
+    background: linear-gradient(
+        to right,
+        #ca6f97,
+        #e9a3bf 18%,
+        #f8c8da 50%,
+        #e9a3bf 82%,
+        #ca6f97
+    );
+    border-radius: 14px 14px 28px 28px;
+    box-shadow:
+        inset 0 -12px 0 #c96c94,
+        inset 0 5px 12px rgba(255, 255, 255, 0.2),
+        0 14px 22px rgba(139, 61, 94, 0.2);
+}
+
+/* Dekorativna glazura na srednjem sloju */
+.cake-middle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: #fff0f5;
+    border-radius: 50%;
+}
+
+/* Red svećica */
+.candles {
+    position: absolute;
+    top: -78px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 5;
+}
+
+/* Pojedinačna svećica */
+.candle {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.nickname {
+    font-size: 11px;
+    color: #8b526e;
+    font-weight: bold;
+    margin-bottom: 7px;
+    white-space: nowrap;
+}
+
+/* Telo sveće */
+.candle-stick {
+    display: block;
+    width: 16px;
+    height: 48px;
+    border-radius: 5px 5px 3px 3px;
+    background: repeating-linear-gradient(
+        135deg,
+        #fff7fb 0px,
+        #fff7fb 6px,
+        #f2a7c6 6px,
+        #f2a7c6 11px
+    );
+    box-shadow: 2px 3px 5px rgba(100, 40, 65, 0.18);
+}
+
+/* Plamen */
+.flame {
+    display: block;
+    width: 15px;
+    height: 23px;
+    margin-bottom: 2px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: linear-gradient(
+        135deg,
+        #fff4a8 10%,
+        #ffb347 55%,
+        #ff7b54 100%
+    );
+    box-shadow: 0 0 10px rgba(255, 174, 75, 0.55);
+}
+
+
+/* POZADINA — važi za oba ekrana */
+body {
+    background:
+        radial-gradient(ellipse at 15% 20%, #fff7fa 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 80%, #f9b9d2 0%, transparent 40%),
+        linear-gradient(135deg, #ffe8f0, #f8c9dc 50%, #fcebf2);
+    overflow-x: hidden;
+}
+
+.container,
+.birthday {
+    position: relative;
+    z-index: 1;
+}
+
+/* Lebdeće dekoracije */
+.floating-decor {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-decor span {
+    position: absolute;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.floating-decor span:nth-child(1) {
+    left: 7%;
+    top: 18%;
+    font-size: 48px;
+    animation-delay: -1s;
+}
+
+.floating-decor span:nth-child(2) {
+    right: 9%;
+    top: 23%;
+    font-size: 38px;
+    animation-delay: -3s;
+}
+
+.floating-decor span:nth-child(3) {
+    left: 13%;
+    bottom: 16%;
+    font-size: 32px;
+    animation-delay: -2s;
+}
+
+.floating-decor span:nth-child(4) {
+    right: 12%;
+    bottom: 13%;
+    font-size: 50px;
+    animation-delay: -4s;
+}
+
+.floating-decor span:nth-child(5) {
+    left: 28%;
+    top: 9%;
+    font-size: 24px;
+    animation-delay: -2s;
+}
+
+.floating-decor span:nth-child(6) {
+    right: 27%;
+    bottom: 8%;
+    font-size: 28px;
+    animation-delay: -1s;
+}
+
+.floating-decor span:nth-child(7) {
+    right: 20%;
+    top: 55%;
+    font-size: 22px;
+    animation-delay: -3s;
+}
+
+.floating-decor span:nth-child(8) {
+    left: 20%;
+    top: 58%;
+    font-size: 22px;
+    animation-delay: -4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(7deg);
+    }
+}
+
+/* Naslov — elegantniji izgled */
+h1,
+.birthday h2 {
+    color: #a9577b;
+    text-shadow: 0 3px 12px rgba(255, 255, 255, 0.65);
+}
+
+/* Dugmići */
+button {
+    box-shadow: 0 7px 20px rgba(181, 91, 132, 0.16);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(181, 91, 132, 0.25);
+}
+
+/* Lepši slojevi torte */
+.cake-top {
+    background:
+        radial-gradient(ellipse at 30% 25%, #fffdfd, transparent 40%),
+        linear-gradient(to bottom, #fff8fb, #ffd9e8 65%, #f2aac7);
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        inset 0 -8px 0 #eaa0bd,
+        0 3px 8px rgba(151, 70, 105, 0.12);
+}
+
+.cake-middle {
+    background:
+        linear-gradient(
+            to right,
+            #d982a6 0%,
+            #f5bad1 18%,
+            #ffe1ed 48%,
+            #f4b6ce 78%,
+            #d982a6 100%
+        );
+    border-radius: 8px 8px 20px 20px;
+    box-shadow:
+        inset 0 -8px 0 #dc8bac,
+        0 5px 9px rgba(151, 70, 105, 0.13);
+}
+
+/* Krem koji se sliva preko srednjeg sloja */
+
+
+/* Donji sloj sa blagim sjajem */
+.cake-bottom {
+    background:
+        radial-gradient(ellipse at 50% 0%, #ffdce9, transparent 60%),
+        linear-gradient(
+            to right,
+            #cf7098,
+            #edabc5 20%,
+            #f8c8da 50%,
+            #eaa1bf 80%,
+            #cb7097
+        );
+    border-radius: 12px 12px 24px 24px;
+    box-shadow:
+        inset 0 -10px 0 #c96c94,
+        0 12px 20px rgba(139, 61, 94, 0.2);
+}
+
+
+
+
+
+
+/* Roze mašnice i biserni ukrasi */
+.cake-bottom::after {
+    content: "୨୧  •  ୨୧  •  ୨୧  •  ୨୧ •  ୨୧  •  ୨୧  •  ୨୧  ";
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    color: #fff5fa;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 3px #c8789c;
+}
+
+/* Sitne ružice na srednjem sloju */
+
+
+
+
+
+
+
+
+
+
+.message-box {
+  display: none;
+  background: #fff0f5;
+  color: #8d526b;
+  border: 1px solid #f3c6d8;
+  border-radius: 20px;
+  padding: 25px;
+  width: 280px;
+  max-width: 85%;
+  margin: 25px auto;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(180, 100, 130, 0.15);
+}
+
+.message-box p {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.message-box button {
+  background: #e8a9c1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Natpis iznad torte */
+h1 {
+  margin-bottom: 45px;
+}
+
+/* Svećice na torti */
+
+
+  
+
+
+
+
+
+.nickname {
+  font-size: 12px;
+  color: #8b526e;
+  font-weight: bold;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.flame {
+  font-size: 22px;
+}
+
+/* Spuštamo prvu i poslednju svećicu */
+.candle:first-child,
+.candle:last-child {
+    transform: translateY(25px);
+}
+
+/* Druga i pretposlednja svećica */
+.candle:nth-child(2),
+.candle:nth-last-child(2) {
+    transform: translateY(10px);
+}
