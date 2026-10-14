@@ -133,16 +133,20 @@ button {
 
 
 
+
 .candles {
     position: absolute;
-    top: -175px;
-    left: 0;
-    width: 100%;
+    top: -78px;
+    left: 10%;
+    width: 80%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-end;
+    gap: 8px;
     z-index: 5;
+    box-sizing: border-box;
 }
+
 
 
 
@@ -165,6 +169,11 @@ button {
 }
 
 
+
+.candle:first-child,
+.candle:last-child {
+    transform: translateY(25px);
+}
 
 
 
@@ -529,18 +538,26 @@ h1 {
    
 
 .candles {
-    position: absolute;
-    top: 5px;
-    left: 8%;
-    width: 84%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 75px 75px;
-    justify-items: center;
-    align-items: end;
-    row-gap: 0;
-    z-index: 5;
-}
+        top: -78px;
+        left: 10%;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .candle {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .candle:first-child,
+    .candle:last-child {
+        transform: translateY(25px);
+    }
 
 
 
