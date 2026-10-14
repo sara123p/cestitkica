@@ -134,14 +134,14 @@ button {
 .candles {
     position: absolute;
     top: -78px;
-    left: 10%;
-    width: 80%;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-end;
-    gap: 8px;
+    gap: 0;
     z-index: 5;
-    box-sizing: border-box;
+   
 }
 
 
@@ -526,8 +526,12 @@ h1 {
 
     /* Svećice i imena */
     .candles {
-        top: -68px;
-        width: 100%;
+        top: -65px;
+        left:8%;
+
+        width: 84%;
+        justify-content: space-between;
+        gap:0;
     }
 
     .candle-stick {
