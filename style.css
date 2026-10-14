@@ -130,16 +130,19 @@ button {
 }
 
 /* Red svećica */
+
 .candles {
     position: absolute;
     top: -78px;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
+    gap: 3px;
     z-index: 5;
 }
+
 
 /* Pojedinačna svećica */
 .candle {
@@ -153,6 +156,9 @@ button {
     background: transparent;
     border: none;
     padding: 0;
+    
+
+
 }
 
 .nickname {
