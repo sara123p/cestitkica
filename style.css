@@ -134,13 +134,14 @@ button {
 .candles {
     position: absolute;
     top: -78px;
-    left: 5%;
-    width: 90%;
+    left: 10%;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
-    gap: 3px;
+    gap: 8px;
     z-index: 5;
+    box-sizing: border-box;
 }
 
 
