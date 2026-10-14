@@ -724,3 +724,15 @@ h1 {
 
 
 
+.candles {
+    align-items: flex-end !important;
+}
+
+.candles .candle {
+    transform: none !important;
+    margin-top: 0 !important;
+}
+
+.candles .candle:nth-child(n) {
+    top: auto !important;
+}
